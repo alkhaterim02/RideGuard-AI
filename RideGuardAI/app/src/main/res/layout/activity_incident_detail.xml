@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="20dp">
+
+        <TextView android:id="@+id/tvStatus" style="@style/RG.Chip" />
+        <TextView android:id="@+id/tvRider" style="@style/RG.Title" android:layout_marginTop="10dp" />
+        <TextView android:id="@+id/tvNumber" style="@style/RG.Label" />
+
+        <com.google.android.material.card.MaterialCardView style="@style/RG.Card">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView style="@style/RG.Section" android:layout_marginTop="0dp" android:text="When and where" />
+                <TextView android:id="@+id/tvTime" style="@style/RG.Body" android:layout_marginTop="6dp" />
+                <TextView android:id="@+id/tvLocation" style="@style/RG.Body" android:layout_marginTop="6dp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnMap"
+                    style="@style/RG.OutlinedButton" android:text="Open map and directions" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView android:id="@+id/cardPeople" style="@style/RG.Card">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView style="@style/RG.Section" android:layout_marginTop="0dp" android:text="Rider and emergency contact" />
+                <TextView android:id="@+id/tvPeople" style="@style/RG.Body" android:layout_marginTop="6dp" />
+                <TextView style="@style/RG.Section" android:text="Health information" />
+                <TextView android:id="@+id/tvHealth" style="@style/RG.Body" android:layout_marginTop="6dp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnCallRider"
+                    style="@style/RG.BigButton" app:backgroundTint="@color/rg_green" android:text="Call rider" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnCallContact"
+                    style="@style/RG.OutlinedButton" android:text="Call emergency contact" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/RG.Card">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView style="@style/RG.Section" android:layout_marginTop="0dp" android:text="Sensor summary" />
+                <TextView android:id="@+id/tvSensor" style="@style/RG.Body" android:layout_marginTop="6dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/RG.Card">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView style="@style/RG.Section" android:layout_marginTop="0dp" android:text="Front accident video" />
+                <TextView android:id="@+id/tvFrontStatus" style="@style/RG.Chip" android:layout_marginTop="8dp" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnPlayFront"
+                        style="@style/RG.BigButton" android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_marginEnd="8dp" android:text="▶ Play" />
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnDownloadFront"
+                        style="@style/RG.OutlinedButton" android:layout_width="0dp" android:layout_weight="1"
+                        android:text="Download" />
+                </LinearLayout>
+
+                <TextView style="@style/RG.Section" android:text="Rear accident video" />
+                <TextView android:id="@+id/tvRearStatus" style="@style/RG.Chip" android:layout_marginTop="8dp" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnPlayRear"
+                        style="@style/RG.BigButton" android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_marginEnd="8dp" android:text="▶ Play" />
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnDownloadRear"
+                        style="@style/RG.OutlinedButton" android:layout_width="0dp" android:layout_weight="1"
+                        android:text="Download" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView android:id="@+id/tvResult" style="@style/RG.Banner" android:visibility="gone" />
+        <TextView android:id="@+id/tvViewLog" style="@style/RG.Label" android:layout_marginTop="12dp"
+            android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnAck"
+            style="@style/RG.BigButton" android:text="Mark as acknowledged" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnClose"
+            style="@style/RG.OutlinedButton" android:text="Close incident" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnDeleteReq"
+            style="@style/RG.TextButton" android:text="Request video deletion" />
+    </LinearLayout>
+</ScrollView>

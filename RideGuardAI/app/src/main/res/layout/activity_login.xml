@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="24dp">
+
+        <TextView android:id="@+id/tvTitle" style="@style/RG.Title" />
+        <TextView style="@style/RG.Label" android:layout_marginTop="4dp"
+            android:text="Enter your login details." />
+
+        <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilId"
+            style="@style/RG.Input" android:layout_marginTop="20dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etId"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilPassword"
+            style="@style/RG.Input" android:hint="Password" app:endIconMode="password_toggle">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPassword"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="textPassword" android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView android:id="@+id/tvError" style="@style/RG.Text" android:textColor="@color/rg_red"
+            android:textSize="16sp" android:layout_marginTop="8dp" android:visibility="gone" />
+
+        <ProgressBar android:id="@+id/progress"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center" android:layout_marginTop="12dp" android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnLogin"
+            style="@style/RG.BigButton" android:layout_marginTop="20dp" android:text="Log in" />
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnForgot"
+            style="@style/RG.TextButton" android:text="Forgot password?" />
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnRegister"
+            style="@style/RG.OutlinedButton" android:text="Create a rider account" />
+
+        <TextView android:id="@+id/tvDemoHint" style="@style/RG.Banner" android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="rg_primary">#0D47A1</color>
+    <color name="rg_primary_dark">#08306B</color>
+    <color name="rg_bg">#F4F6F9</color>
+    <color name="rg_text">#121212</color>
+    <color name="rg_green">#1B7F3B</color>
+    <color name="rg_amber">#FFC107</color>
+    <color name="rg_red">#C62828</color>
+    <color name="rg_red_light">#FDECEA</color>
+    <color name="rg_grey">#616161</color>
+</resources>

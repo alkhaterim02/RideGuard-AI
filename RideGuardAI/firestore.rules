@@ -1,0 +1,45 @@
+rules_version = '2';
+// RideGuard AI - Firestore security rules (prototype).
+// The Raspberry Pi uses the Firebase Admin SDK, which bypasses these rules.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function me() { return get(/databases/$(database)/documents/users/$(request.auth.uid)).data; }
+    function isCompanyOf(cid) { return signedIn() && me().role == 'company' && me().companyId == cid; }
+
+    match /users/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      // Riders create their own user record. Company accounts are created by an admin in the console.
+      allow create: if signedIn() && request.auth.uid == uid && request.resource.data.role == 'rider';
+      allow update: if signedIn() && request.auth.uid == uid
+                    && request.resource.data.role == resource.data.role
+                    && request.resource.data.companyId == resource.data.companyId;
+    }
+
+    match /riders/{riderId} {
+      allow read: if signedIn() && (request.auth.uid == riderId || isCompanyOf(resource.data.companyId));
+      allow create: if signedIn() && (request.auth.uid == riderId || isCompanyOf(request.resource.data.companyId));
+      allow update: if signedIn() && (request.auth.uid == riderId || isCompanyOf(resource.data.companyId));
+    }
+
+    match /devices/{deviceId} {
+      allow read: if signedIn() && (resource.data.riderId == request.auth.uid || isCompanyOf(resource.data.companyId));
+      // Riders may only switch "rideActive" on their own vest.
+      allow update: if signedIn() && resource.data.riderId == request.auth.uid
+                    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['rideActive']);
+    }
+
+    match /incidents/{incidentId} {
+      allow read: if signedIn() && (resource.data.riderId == request.auth.uid || isCompanyOf(resource.data.companyId));
+      // Riders can create only manual SOS incidents for themselves.
+      allow create: if signedIn() && request.resource.data.riderId == request.auth.uid
+                    && request.resource.data.type == 'manual_sos';
+      allow update: if signedIn() && (
+        (resource.data.riderId == request.auth.uid
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(
+            ['status', 'cancelledFrom', 'finalResult', 'falseAlarmReported', 'falseAlarmReportedAt',
+             'locationRequestAt', 'deleteRequested']))
+        || isCompanyOf(resource.data.companyId));
+    }
+  }
+}

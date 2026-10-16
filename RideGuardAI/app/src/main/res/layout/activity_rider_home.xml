@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="20dp">
+
+        <TextView android:id="@+id/tvGreeting" style="@style/RG.Title" android:text="Hello" />
+
+        <com.google.android.material.card.MaterialCardView style="@style/RG.Card">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView style="@style/RG.Label" android:text="Current status" />
+                <TextView android:id="@+id/tvState" style="@style/RG.Chip"
+                    android:layout_marginTop="8dp" android:textSize="18sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView android:id="@+id/tvActiveEmergency" style="@style/RG.Text"
+            android:background="@color/rg_red" android:textColor="@color/white"
+            android:padding="16dp" android:textSize="18sp" android:textStyle="bold"
+            android:layout_marginTop="14dp" android:minHeight="56dp"
+            android:clickable="true" android:focusable="true" android:visibility="gone"
+            android:text="🚨 Emergency active. Tap to view." />
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnStartRide"
+            style="@style/RG.BigButton" android:layout_marginTop="18dp" android:text="Start ride" />
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnSos"
+            style="@style/RG.BigButton" android:minHeight="96dp" android:textSize="24sp"
+            app:backgroundTint="@color/rg_red" android:text="@string/sos_label" />
+
+        <TextView style="@style/RG.Label" android:gravity="center" android:layout_marginTop="6dp"
+            android:text="Press and hold for 2 seconds to send an emergency alert." />
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnSimulate"
+            style="@style/RG.OutlinedButton" android:visibility="gone"
+            android:text="Simulate accident (demo)" />
+
+        <com.google.android.material.card.MaterialCardView style="@style/RG.Card">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView style="@style/RG.Section" android:layout_marginTop="0dp" android:text="Vest status" />
+                <LinearLayout android:id="@+id/statusRows"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp" android:orientation="vertical" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnHealth"
+            style="@style/RG.OutlinedButton" android:text="Health profile &amp; emergency contact" />
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnHistory"
+            style="@style/RG.OutlinedButton" android:text="Accident history" />
+    </LinearLayout>
+</ScrollView>

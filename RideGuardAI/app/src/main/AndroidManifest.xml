@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name=".RideGuardApp"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_logo"
+        android:roundIcon="@drawable/ic_logo"
+        android:label="RideGuard AI"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.RideGuard">
+
+        <activity
+            android:name=".ui.WelcomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.RideGuard.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.RegisterActivity" />
+        <activity android:name=".ui.RiderHomeActivity" />
+        <activity android:name=".ui.HealthProfileActivity" />
+        <activity
+            android:name=".ui.CountdownActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.RideGuard.NoActionBar" />
+        <activity android:name=".ui.EmergencyActivity" />
+        <activity android:name=".ui.HistoryActivity" />
+        <activity android:name=".ui.IncidentDetailActivity" />
+        <activity android:name=".ui.CompanyDashboardActivity" />
+        <activity android:name=".ui.RiderManagementActivity" />
+        <activity
+            android:name=".ui.VideoPlayerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/Theme.RideGuard.Fullscreen" />
+
+        <service
+            android:name=".messaging.RideGuardMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+</manifest>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="20dp">
+
+        <TextView android:id="@+id/tvHeader" style="@style/RG.Text"
+            android:background="@color/rg_red" android:textColor="@color/white"
+            android:textSize="26sp" android:textStyle="bold" android:padding="18dp"
+            android:gravity="center" />
+
+        <com.google.android.material.card.MaterialCardView style="@style/RG.Card">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView android:id="@+id/tvTime" style="@style/RG.Body" />
+                <TextView android:id="@+id/tvLocation" style="@style/RG.Body" android:layout_marginTop="8dp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnMap"
+                    style="@style/RG.OutlinedButton" android:text="Open location in Maps" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/RG.Card">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView style="@style/RG.Section" android:layout_marginTop="0dp" android:text="Alert progress" />
+                <LinearLayout android:id="@+id/statusRows"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnCallContact"
+            style="@style/RG.BigButton" app:backgroundTint="@color/rg_green"
+            android:text="Call emergency contact" />
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnUpdateLocation"
+            style="@style/RG.OutlinedButton" android:text="Update my location" />
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnDetails"
+            style="@style/RG.OutlinedButton" android:text="View full details and videos" />
+
+        <TextView android:id="@+id/tvFalseNote" style="@style/RG.Banner" android:visibility="gone"
+            android:text="You reported this as a false alarm. A follow-up message tells your emergency contact that you are safe." />
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnFalseAlarm"
+            style="@style/RG.TextButton" android:text="This was a false alarm" />
+    </LinearLayout>
+</ScrollView>

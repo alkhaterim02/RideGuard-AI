@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="20dp">
+
+        <TextView android:id="@+id/tvIntro" style="@style/RG.Body" />
+
+        <LinearLayout android:id="@+id/formFields"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <CheckBox android:id="@+id/cbConsent"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:minHeight="56dp" android:textSize="16sp"
+            android:visibility="gone" />
+
+        <TextView android:id="@+id/tvError" style="@style/RG.Text" android:textColor="@color/rg_red"
+            android:textSize="16sp" android:layout_marginTop="8dp" android:visibility="gone" />
+
+        <ProgressBar android:id="@+id/progress"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center" android:layout_marginTop="12dp" android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnSubmit"
+            style="@style/RG.BigButton" android:layout_marginTop="20dp" />
+    </LinearLayout>
+</ScrollView>
